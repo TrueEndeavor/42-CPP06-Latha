@@ -5,15 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lannur-s <lannur-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/16 13:16:25 by lannur-s          #+#    #+#             */
-/*   Updated: 2024/07/17 15:37:45 by lannur-s         ###   ########.fr       */
+/*   Created: 2024/07/17 15:26:13 by lannur-s          #+#    #+#             */
+/*   Updated: 2024/07/17 16:58:15 by lannur-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALAR_CONVERTER_HPP
-#define SCALAR_CONVERTER_HPP
+#ifndef SCALARCONVERTER_HPP
+# define SCALARCONVERTER_HPP
 
 #include <string>
+#include <iostream>
 
 #define RED "\033[0;91m"
 #define GREEN "\033[0;92m"
@@ -28,19 +29,12 @@ class ScalarConverter
 {
 	private:
 		ScalarConverter();
-		ScalarConverter( const ScalarConverter &other );
-		ScalarConverter&	operator= ( const ScalarConverter& other );
-				
+		ScalarConverter( const ScalarConverter &other);
+		ScalarConverter &operator=( const ScalarConverter &other);
+	
 	public:
 		~ScalarConverter();
-		static void convert( std::string str );
+		static void		convert( std::string input);
 };
-
-bool	isEmpty( const std::string& str );
-bool	isCharLiteral( const std::string& str );
-std::string	strWithoutWhitespace( std::string str );
-bool	isIntLiteral( const std::string& str );
-bool	isFloatLiteral( const std::string str );
-bool	isDoubleLiteral( const std::string str );
 
 #endif
