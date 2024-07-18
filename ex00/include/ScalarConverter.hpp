@@ -6,7 +6,7 @@
 /*   By: lannur-s <lannur-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 15:26:13 by lannur-s          #+#    #+#             */
-/*   Updated: 2024/07/17 16:58:15 by lannur-s         ###   ########.fr       */
+/*   Updated: 2024/07/18 14:43:20 by lannur-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 #include <string>
 #include <iostream>
+#include "ConverterHelper.hpp"
+#include "ConversionChecks.hpp"
+#include "Utils.hpp"
 
 #define RED "\033[0;91m"
 #define GREEN "\033[0;92m"

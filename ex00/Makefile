@@ -6,7 +6,7 @@
 #    By: lannur-s <lannur-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/17 16:55:22 by lannur-s          #+#    #+#              #
-#    Updated: 2024/07/17 17:58:59 by lannur-s         ###   ########.fr        #
+#    Updated: 2024/07/18 14:43:28 by lannur-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,8 @@ YELLOW=\033[0;33m
 NC=\033[0m # No Color
 
 SRC = ScalarConverter.cpp \
+		ConverterHelper.cpp \
+		ConversionChecks.cpp \
 		Utils.cpp \
 		main.cpp
 

@@ -6,11 +6,13 @@
 /*   By: lannur-s <lannur-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 15:25:57 by lannur-s          #+#    #+#             */
-/*   Updated: 2024/07/17 17:39:38 by lannur-s         ###   ########.fr       */
+/*   Updated: 2024/07/18 20:02:26 by lannur-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+
+ScalarConverter::ScalarConverter() {}
 
 ScalarConverter::ScalarConverter( const ScalarConverter &other )
 {
@@ -31,20 +33,30 @@ ScalarConverter::~ScalarConverter()
 	std::cout << "Scalar Converter destructed" << std::endl;
 }
 
-void    ScalarConverter::convert( std::string input )
+void    ScalarConverter::convert( const std::string input )
 {
-	// detect the type of the literal passed as parameter
-	//isChar?
-	//isInt?
-	//isFloat?
-	//isDouble?
-
-	//isSpecial?
-
-
-	//is
-	//conversion logic
-	(void) input;
-	std::cout << "Scalar Converter convert function" << std::endl;
-	
+	std::cout.setf(std::ios::fixed);
+	std::cout.precision(1);
+	if (isPseudoLiteral(input))
+	{
+		handlePseudoLiteral(input);
+		return;
+	}
+	else if (isChar(input))
+		convertFromChar(input);
+	else if (isInt(input))
+	{
+		convertFromInt(input);
+	}
+	else if (isFloat(input))
+		convertFromFloat(input);
+	else if (isDouble(input))
+		convertFromDouble(input);
+	else 
+	{
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: impossible" << std::endl;
+		std::cout << "double: impossible" << std::endl;
+	}
 }
