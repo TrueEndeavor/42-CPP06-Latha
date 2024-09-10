@@ -6,7 +6,7 @@
 /*   By: lannur-s <lannur-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 15:26:13 by lannur-s          #+#    #+#             */
-/*   Updated: 2024/07/18 20:17:28 by lannur-s         ###   ########.fr       */
+/*   Updated: 2024/07/19 13:03:18 by lannur-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 
 bool	isPseudoLiteral( std::string input );
 bool	isPrintable(char c);
-bool	isNumeric(const std::string &input);
+bool isNumeric(const std::string &input, std::string scalarType);
 
 bool	isChar(const std::string &literal);
 bool	isInt(const std::string &literal);

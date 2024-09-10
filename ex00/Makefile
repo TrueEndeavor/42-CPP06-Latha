@@ -6,12 +6,11 @@
 #    By: lannur-s <lannur-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/17 16:55:22 by lannur-s          #+#    #+#              #
-#    Updated: 2024/07/18 14:43:28 by lannur-s         ###   ########.fr        #
+#    Updated: 2024/07/19 19:16:07 by lannur-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = scalarBasic
-
+NAME = scalar
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 RM		= rm -rf

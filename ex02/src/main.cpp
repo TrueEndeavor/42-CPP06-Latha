@@ -3,26 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yachen <yachen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lannur-s <lannur-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 16:43:52 by yachen            #+#    #+#             */
-/*   Updated: 2024/05/06 13:29:59 by yachen           ###   ########.fr       */
+/*   Updated: 2024/07/19 18:47:33 by lannur-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
 #include <iostream>
+#include <cstdlib>
+#include <ctime> 
+#include <string> 
 
-int	main( void )
-{
-	std::cout << "Generate a random objet\n";
-	Base*	p1 = generate();
-	std::cout << "Give it to a reference\n";
-	Base&	rp1 = *p1;
+int main() {
+	// Seed the random number generator
+	std::srand(std::time(NULL));
+
+	// Generate a random object
+	Base* obj = generate();
+
+	// Identify the type using pointer
+	std::cout << "Identifying via pointer:" << std::endl;
+	identify(obj);
+	std::cout << std::endl;
 	
-	identify( p1 );
-	identify( rp1 );
-	
-	delete(p1);
+	// Identify the type using reference
+	std::cout << "Identifying via reference:" << std::endl;
+	identify(*obj);
+
+	// Clean up
+	delete obj;
+
 	return 0;
 }

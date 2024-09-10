@@ -3,52 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   Data.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yachen <yachen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lannur-s <lannur-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/03 11:35:11 by yachen            #+#    #+#             */
-/*   Updated: 2024/05/03 12:02:51 by yachen           ###   ########.fr       */
+/*   Created: 2024/07/19 15:01:10 by lannur-s          #+#    #+#             */
+/*   Updated: 2024/07/19 16:43:06 by lannur-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Data.hpp"
 #include <iostream>
 
-using std::cout;
-using std::endl;
-
-Data::Data( int i, char c ) : i( i ), c( c )
+Data::Data( int number, std::string text ) : number( number ), text( text )
 {
-	cout << B_BLUE << "Data : Default constructor called" << RESET << endl;
+	std::cout << YELLOW << "Data : Default constructor called" << RESET << std::endl;
 }
 
 Data::~Data()
 {
-	cout << B_MAGENTA << "Data : Default destructor called" << RESET << endl;
+	std::cout << YELLOW << "Data : Default destructor called" << RESET << std::endl;
 }
 
 Data::Data( const Data& other)
 {
 	*this = other;
-	cout << BLUE << "Data : copy constructor called" << RESET << endl;
+	std::cout << YELLOW << "Data : copy constructor called" << RESET << std::endl;
 }
 
 Data&	Data::operator = ( const Data& other )
 {
 	if ( this != &other )
 	{
-		this->i = other.i;
-		this->c = other.c;
+		this->number = other.number;
+		this->text = other.text;
 	}
-	cout << BLUE << "Data : operator assignement called" << RESET << endl;
+	std::cout << YELLOW << "Data : assignement operator called" << RESET << std::endl;
 	return *this;
 }
 
-int	Data::getI() const
+int	Data::getNumber() const
 {
-	return i;
+	return number;
 }
 
-char	Data::getC() const
+std::string	Data::getText() const
 {
-	return c;
+	return text;
 }

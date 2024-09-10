@@ -3,54 +3,52 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yachen <yachen@student.42.fr>              +#+  +:+       +#+         #
+#    By: lannur-s <lannur-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/01/25 14:21:49 by yachen            #+#    #+#              #
-#    Updated: 2024/05/03 14:51:24 by yachen           ###   ########.fr        #
+#    Created: 2024/07/17 16:55:22 by lannur-s          #+#    #+#              #
+#    Updated: 2024/07/19 15:05:14 by lannur-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Serializer
+NAME = serializer
 
-CC = c++
+CC		= c++
+FLAGS	= -Wall -Wextra -Werror -std=c++98
+RM		= rm -rf
+INCLUDE = -I./include
+SRC_DIR = src
 
-CFLAGS = -std=c++98 -Wall -Wextra -Werror
+RED=\033[0;31m
+GREEN=\033[0;32m
+YELLOW=\033[0;33m
+NC=\033[0m # No Color
 
-SRC = main.cpp Serializer.cpp Data.cpp
+SRC = Data.cpp \
+		Serializer.cpp \
+		main.cpp
 
-OBJ = $(SRC:.cpp=.o)
+OBJ_DIR= obj
 
-DEPS = $(OBJ:.o=.d)
+all: $(OBJ_DIR) $(NAME)
+	@echo "${GREEN}Makefile finished successfully!${NC} Run '${YELLOW}${NAME}'${NC}to execute."
 
-all: $(NAME)
+$(OBJ_DIR):
+	mkdir -p obj
 
+OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 $(NAME): $(OBJ)
-		@echo "\e[32m\n==================================="
-		@echo "\e[32mCompiling Serializer----------------"
-		@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-		@echo "\e[32m---created with success  Serializer"
-		@echo "\e[32m===================================\n\e[0m"
+	@ $(CC) $(FLAGS) $(INCLUDE) $(OBJ) -o $(NAME)
 
-%.o: %.cpp
-	@$(CC) $(CFLAGS) -MMD -c $< -o $@
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+	$(CC) $(FLAGS) $(INCLUDE) -c $< -o $@
 
 clean:
-	@echo "\e[32m\n====================="
-	@echo "\e[32mCleaning Serializer----"
-	@rm -rf $(OBJ) $(DEPS)
-	@echo "\e[32m--- Serializer Cleaned"
-	@echo "\e[32m=====================\n\e[0m"
+	rm -rf $(OBJ_DIR)
 
-fclean:
-	@echo "\e[32m\n====================="
-	@echo "\e[32mCleaning Serializer----"
-	@rm -rf $(OBJ) $(DEPS)
-	@echo "\e[32m--- Serializer Cleaned"
-	@rm -rf $(NAME)
-	@echo "\e[32m=====================\n\e[0m"
+fclean:	clean
+	rm -f $(NAME)
 
 re: fclean all
 
--include $(DEPS)
+.PHONY: all clean fclean re
 
-.PHONY: clean fclean all re bonus
